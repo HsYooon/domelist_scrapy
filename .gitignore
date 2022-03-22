@@ -1,2 +1,2 @@
-*.ini
-./dome_env
+dome_env/
+/dome_scrapy/*.ini
