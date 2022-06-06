@@ -12,6 +12,7 @@ process = CrawlerProcess(get_project_settings())
 # ex) # 'domaecos'
 #
 spiders = [
+    'ezmarket',
     'plusb2b',
     'domaecos',
     '2sunplanet',
@@ -28,7 +29,7 @@ spiders = [
     'dodomall',
     'dogsclub',
     'domejjim',
-    'domesangin',
+    # 'domesangin',
     'feelwoo',
     'fromvi',
     'funn',
@@ -75,7 +76,9 @@ spiders = [
     'sujinpet',
     'twostory',
     'wehayou',
-    'zseller'
+    'zseller',
+    'accatoy',
+    'lalab2b',
 ]
 # 스크롤러 
 for spider in spiders:

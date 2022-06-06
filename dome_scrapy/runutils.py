@@ -19,6 +19,7 @@ print("원하는 작업을 선택하세요.")
 print("[1] 지난 날짜 데이터 삭제")
 print("[2] 특정 데이터 삭제")
 print("[3] 상품 개수 현황")
+print("[4] 시퀀스 초기화")
 answer = input("번호를 입력하세요 : ")
 
 if answer != '':
@@ -67,6 +68,9 @@ if answer != '':
             name = data["name"]
             count = data["count"]
             print(f'[{name}] 상품수 : {data["count"]}')
-    
+
+    elif num == '4':
+        sql = f"ALTER TABLE t_domelist AUTO_INCREMENT = 1"
+        
     # DB 연결 해제
     connection.close()
