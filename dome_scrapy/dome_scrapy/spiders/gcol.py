@@ -17,7 +17,7 @@ class Gcol_Spider(scrapy.Spider) :
             item = DomeScrapyItem()
             
             url = uri # + div.xpath('./tr/td/table')[0].xpath('./tr/td/a/@href').get()
-            img = uri + div.xpath('./tr/td/table')[0].xpath('./tr/td/a/img/@src').get()[1:]
+            img = uri + div.xpath('./tr/td/table')[0].xpath('./tr/td/a/img/@src').get()[2:]
             title = div.xpath('./tr/td/table')[2].xpath('./tr/td/a/text()').get()
             
             item['name'] = '지컬렉션'

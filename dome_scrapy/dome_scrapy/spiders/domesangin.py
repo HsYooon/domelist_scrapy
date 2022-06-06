@@ -39,7 +39,7 @@ class Domesangin_Spider(scrapy.Spider) :
             if request_url == self.url_best:
                 info = '12'
 
-            url = uri + div.xpath('./div/div[1]/a/@href').get()
+            url = uri + div.xpath('./div/div[1]/a/@href').get()[2:]
             img = uri + div.xpath('./div/div[1]/a/img/@src').get()
             title = div.xpath('./div/div[2]/div[1]/a/strong/text()').get()
             
