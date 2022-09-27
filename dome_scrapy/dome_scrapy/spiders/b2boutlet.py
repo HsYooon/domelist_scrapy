@@ -8,7 +8,7 @@ class B2boutlet_Spider(scrapy.Spider):
 
     def start_requests(self):
         yield scrapy.Request('https://www.b2boutlet.co.kr/product/newProductList', self.parse1) # 신상품 100 
-        #yield scrapy.Request('https://www.b2boutlet.co.kr/product/hitProductList', self.parse2) # 인기상품 100
+        yield scrapy.Request('https://www.b2boutlet.co.kr/product/hitProductList', self.parse2) # 인기상품 100
 
     def parse1(self, response):
         uri = 'http://www.b2boutlet.co.kr'
