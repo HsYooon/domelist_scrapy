@@ -7,12 +7,12 @@ class B2boutlet_Spider(scrapy.Spider):
     info = ['11','12'] # 11: 신상품 12: 베스트 
 
     def start_requests(self):
-        yield scrapy.Request('http://www.b2boutlet.co.kr/', self.parse) # 메인 > 신상품 섹션 
-        yield scrapy.Request('https://www.b2boutlet.co.kr/product/hitProductList', self.parse2) # 인기상품 100
+        yield scrapy.Request('https://www.b2boutlet.co.kr/product/newProductList', self.parse1) # 신상품 100 
+        #yield scrapy.Request('https://www.b2boutlet.co.kr/product/hitProductList', self.parse2) # 인기상품 100
 
-    def parse(self, response):
+    def parse1(self, response):
         uri = 'http://www.b2boutlet.co.kr'
-        for div in response.css('.productArea').xpath('./ul//li'):
+        for div in response.css('.prdArea_1080').xpath('./ul//li'):
             item = DomeScrapyItem()
 
             url = uri + div.css('.prd_thumb').xpath('./div//a/@href').get()
@@ -23,7 +23,7 @@ class B2boutlet_Spider(scrapy.Spider):
             item['img'] = img
             item['url'] = url
             item['title'] = title
-            item['info'] = self.info[0]
+            item['info'] = self.info[0] # 신상품
             item['category'] = '01' # 종합 01
             yield item
 
@@ -40,7 +40,7 @@ class B2boutlet_Spider(scrapy.Spider):
             item['img'] = img
             item['url'] = url
             item['title'] = title
-            item['info'] = self.info[1]
+            item['info'] = self.info[1] # 베스트
             item['category'] = '01' # 종합 01
             yield item
             
