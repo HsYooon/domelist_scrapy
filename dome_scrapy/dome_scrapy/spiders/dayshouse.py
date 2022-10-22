@@ -11,8 +11,8 @@ class Dayshouse_Spider(scrapy.Spider) :
     def parse(self, response):
        item = DomeScrapyItem()
        home = "http://dayshouse.co.kr/index.html"
-       
-       for div in response.xpath('//ul[@class="prdList column4"]/li'):
+
+       for div in response.xpath('//div[@id="TabProductDisplay_bt_1"]/div/ul/li'):
            url = home
            img = 'https:' + div.xpath('./div/a/img/@src').get()
            title = div.xpath('./div/p/a/span/text()').get()
@@ -25,4 +25,41 @@ class Dayshouse_Spider(scrapy.Spider) :
            item['info'] = '11' # 신상품
            yield item
 
-        
+       for div in response.xpath('//div[@id="TabProductDisplay_bt_2"]/div/ul/li'):
+           url = home
+           img = 'https:' + div.xpath('./div/a/img[1]/@src').get()
+           title = div.xpath('./a/div/span/text()').get()
+
+           item['name'] = '데이스하우스'
+           item['img'] = img
+           item['url'] = url
+           item['title'] = title
+           item['category'] = '03' # 인테리어/소품
+           item['info'] = '12' # 베스트
+           yield item
+       
+       for div in response.xpath('//div[@id="TabProductDisplay_bt_3"]/div/ul/li'):
+           url = home
+           img = 'https:' + div.xpath('./div/a/img[1]/@src').get()
+           title = div.xpath('./a/div/span/text()').get()
+
+           item['name'] = '데이스하우스'
+           item['img'] = img
+           item['url'] = url
+           item['title'] = title
+           item['category'] = '03' # 인테리어/소품
+           item['info'] = '12' # 베스트
+           yield item
+
+       for div in response.xpath('//div[@id="TabProductDisplay_bt_4"]/div/ul/li'):
+           url = home
+           img = 'https:' + div.xpath('./div/a/img[1]/@src').get()
+           title = div.xpath('./a/div/span/text()').get()
+
+           item['name'] = '데이스하우스'
+           item['img'] = img
+           item['url'] = url
+           item['title'] = title
+           item['category'] = '03' # 인테리어/소품
+           item['info'] = '12' # 베스트
+           yield item
