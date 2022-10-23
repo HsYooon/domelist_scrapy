@@ -18,7 +18,7 @@ class Dimfac_Spider(scrapy.Spider) :
        for div in response.xpath('//div[@class="df-prl-box"]'):
            item = DomeScrapyItem()
            url = uri #+ div.xpath('./div/a/@href').get()
-           img = div.xpath('./div[@class="df-prl-thumb"]/a/img/@src').get()[2:]
+           img = 'https://' + div.xpath('./div[@class="df-prl-thumb"]/a/img/@src').get()[2:]
            title = div.xpath('./div[@class="df-prl-desc"]/div/a/span/text()').get()
             
            item['name'] = '딤팩'
