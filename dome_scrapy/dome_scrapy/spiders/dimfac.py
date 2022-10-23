@@ -7,9 +7,7 @@ class Dimfac_Spider(scrapy.Spider) :
     
     def start_requests(self):
         urls = [
-        'https://www.dimfac.co.kr/product/list.html?cate_no=29', # TOP
-        'https://www.dimfac.co.kr/product/list.html?cate_no=59', # Man Pants
-        'https://www.dimfac.co.kr/product/list.html?cate_no=30', # Woman Pants
+        'https://www.dimfac.co.kr'
         ]
         for url in urls :
             yield scrapy.Request(url, self.parse) 
@@ -17,19 +15,19 @@ class Dimfac_Spider(scrapy.Spider) :
     def parse(self, response):
        uri = "https://www.dimfac.co.kr"
 
-       for div in response.xpath('//ul[@class="prdList column4"]/li'):
-            item = DomeScrapyItem()
-            url = uri + div.xpath('./div/a/@href').get()
-            img = 'http:' + div.xpath('./div/a/img/@src').get()
-            title = div.xpath('./div/p[@class="name"]/a/span/text()').get()
+       for div in response.xpath('//div[@class="df-prl-box"]'):
+           item = DomeScrapyItem()
+           url = uri #+ div.xpath('./div/a/@href').get()
+           img = div.xpath('./div[@class="df-prl-thumb"]/a/img/@src').get()[2:]
+           title = div.xpath('./div[@class="df-prl-desc"]/div/a/span/text()').get()
             
-            item['name'] = '딤팩'
-            item['img'] = img
-            item['url'] = url
-            item['title'] = title
-            item['category'] = '11' # 의류
-            item['info'] = '12'
-            yield item
+           item['name'] = '딤팩'
+           item['img'] = img
+           item['url'] = url
+           item['title'] = title
+           item['category'] = '11' # 의류
+           item['info'] = '12'
+           yield item
        
 
         
