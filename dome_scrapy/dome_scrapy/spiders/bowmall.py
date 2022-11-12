@@ -10,7 +10,7 @@ class Bowmall_Spider(scrapy.Spider) :
         yield scrapy.Request('https://bowmall.co.kr/goods/catalog?code=0001', self.parse2) # 인기상품 100
         yield scrapy.Request('https://bowmall.co.kr/goods/catalog?code=0003', self.parse2) # 카테고리
         yield scrapy.Request('https://bowmall.co.kr/goods/catalog?code=0006', self.parse2) # 카테고리
-        yield scrapy.Request('https://bowmall.co.kr/goods/catalog?code=0009', self.parse2) # 카테고리
+        yield scrapy.Request('https://bowmall.co.kr/goods/catalog?code=0009', self.parse2) # 카테고리 70
         yield scrapy.Request('https://bowmall.co.kr/goods/catalog?code=0010', self.parse2) # 카테고리
         
         
@@ -53,7 +53,7 @@ class Bowmall_Spider(scrapy.Spider) :
             url = uri + '/goods/view?no=' + div.xpath('./div/div/a/@onclick').get().split("'")[1]
             img = uri + div.xpath('./div/div/a/img/@src').get()
             title = div.xpath('./div/div/a/img/@alt').get()
-            
+
             item['name'] = '세경카이프b2b'
             item['img'] = img
             item['url'] = url
