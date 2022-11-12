@@ -14,7 +14,7 @@ NEWSPIDER_MODULE = 'dome_scrapy.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Yeti'
+USER_AGENT = 'user'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -50,9 +50,12 @@ CONCURRENT_REQUESTS = 5
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'dome_scrapy.middlewares.DomeScrapyDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+   'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+   'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
+   'scrapy_fake_useragent.middleware.RetryUserAgentMiddleware': 401,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
