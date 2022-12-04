@@ -18,7 +18,7 @@ class Pettory_Spider(scrapy.Spider) :
             item = DomeScrapyItem()
             
             url = uri # + div.xpath('./div[1]/a/@href').get()
-            img = 'http:' + div.xpath('./div[1]/a/img/@src').get()
+            img = 'https:' + div.xpath('./div[1]/a/img/@src').get()
             title = div.xpath('./div[2]/strong/a/span[2]/text()').get()
             
             item['name'] = '펫토리'

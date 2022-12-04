@@ -17,7 +17,7 @@ class Jystyle_Spider(scrapy.Spider) :
        for div in response.xpath('//ul[@class="prdList grid4"]/li'):
             item = DomeScrapyItem()
             url = uri # + div.xpath('./div[@class="thumbnail outline"]/a/@href').get()
-            img = 'http:' + div.xpath('./div[@class="thumbnail outline"]/a/div[@class="normal_thumb"]/img/@src').get()
+            img = 'https:' + div.xpath('./div[@class="thumbnail outline"]/a/div[@class="normal_thumb"]/img/@src').get()
             title = div.xpath('./div[@class="description"]/p[@class="name"]/a/text()').get().strip(' ')
 
             item['name'] = '제이와이스타일'

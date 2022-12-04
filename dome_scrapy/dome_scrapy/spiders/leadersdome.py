@@ -17,7 +17,7 @@ class Leadersdome_Spider(scrapy.Spider) :
        for div in response.xpath('//ul[@class="prdList grid5"]/li'):
             item = DomeScrapyItem()
             url = uri # + div.xpath('./div[@class="thumbnail"]/a/@href').get()
-            img = 'http:' + div.xpath('./div[@class="thumbnail"]/a/img/@src').get()
+            img = 'https:' + div.xpath('./div[@class="thumbnail"]/a/img/@src').get()
             title = div.xpath('./div[@class="description"]/span[@class="name"]/a/span')[1].xpath('./text()').get()
             
             item['name'] = '리더스도매'
