@@ -1,2 +1,5 @@
 dome_env/
 /dome_scrapy/*.ini
+__pycache__/
+/dome_scrapy/__pycache__/*
+/dome_scrapy/spiders/__pycache__/*

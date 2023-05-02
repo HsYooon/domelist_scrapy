@@ -4,19 +4,20 @@ from dome_scrapy.items import DomeScrapyItem
 class FuntasticB2B_Spider(scrapy.Spider) :
     name = 'funtasticb2b'
     start_urls = [
-        'https://funtasticb2b.co.kr/goods/catalog?page=1&sort=newly&code=0010',
-        'https://funtasticb2b.co.kr/goods/catalog?page=2&sort=newly&code=0010',
-        'https://funtasticb2b.co.kr/goods/catalog?page=3&sort=newly&code=0010'
+        'https://funtasticb2b.co.kr/goods/catalog?page=1&code=0023',
+        'https://funtasticb2b.co.kr/goods/catalog?page=2&code=0023',
+        'https://funtasticb2b.co.kr/goods/catalog?page=3&code=0023',
+        'https://funtasticb2b.co.kr/goods/catalog?page=4&code=0023'
     ]
 
     def parse(self, response):
         uri = "https://funtasticb2b.co.kr"
     
-        for div in response.css('.goodsDisplayItemWrap'):
+        for div in response.xpath('//li[@class="goodsDisplayWrap"]'):
             item = DomeScrapyItem()
         
             img_tag = div.css('.goodsDisplayImageWrap').xpath('.//img/@src').get()
-            img = uri + img_tag 
+            img = uri + img_tag
             # product link
             tag_a = div.css('.goodsDisplayTextWrap').xpath('.//li[2]//a/@onclick').get()
             url = uri + '/goods/view?no=' + tag_a.split("'")[1]
@@ -30,3 +31,4 @@ class FuntasticB2B_Spider(scrapy.Spider) :
             item['category'] = '01'
             item['info'] = '11'
             yield item
+            

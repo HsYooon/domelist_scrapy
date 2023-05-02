@@ -25,7 +25,7 @@ spiders = [
     'byramee',
     'dayshouse',
     'dimfac',
-    'dodomall',
+    #'dodomall', # 확인 필요
     'dogsclub',
     'domejjim',
     'feelwoo',
@@ -35,21 +35,18 @@ spiders = [
     'gagudome',
     'ggotda',
     'goodbeauty',
-    'goodbuying',
     'innovill',
     'iwinwinmarket',
     'jeanforce',
-    'jeostyle',
     'joomengi',
     'jsweet',
     'jystyle',
     'jywholesale',
-    'kayu',
     'leadersdome',
     'lecb2b',
     'manipanda',
     'mdpet',
-    'mongtang',
+    #'mongtang', # 확인 필요
     'moonnri',
     'oneplusm',
     'pettory',
@@ -58,8 +55,7 @@ spiders = [
     'pqb2b',
     'roomnoffice',
     'samhoglass',
-    'schnariever',
-    'sdmall',
+    #'sdmall', # url 변경
     'seoulbasket',
     'simplo',
     'soggupnoli',
@@ -73,6 +69,10 @@ spiders = [
 ]
 # 제외 스크롤러
 # 'dasopoom', 'domesangin', gcol', 'hometawnggyi', 'livingchu', 'sellerz', 'sijangn', 'wehayou', 'namdaemun',
+# 'goodbuying' (굿바잉) # 23.4.29 사이트 폐쇄로 삭제
+
+# 임시 제거 스크롤러 
+# 'jeostyle' - 타임아웃  'schnariever', 'kayu' - 구조 변경
 
 # 스크롤러 
 for spider in spiders:
