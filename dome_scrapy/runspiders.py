@@ -35,7 +35,7 @@ for spider in spiders:
     process.crawl(spider, domain='scrapy.org')
     sleep(1.5)
 
-process.start()# the script will block here until the crawling is finished
+process.start() # 스크래핑이 끝날때까지 block
 
 print("++++ Crawl Process finished ++++")
 
