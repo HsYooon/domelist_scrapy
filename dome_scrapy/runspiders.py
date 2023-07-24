@@ -11,75 +11,31 @@ process = CrawlerProcess(get_project_settings())
 # 주석처리 방법 
 # ex) # 'domaecos'
 #
+
 spiders = [
-    '2sunplanet',
-    'ezmarket',
-    'plusb2b',
-    'domaecos',
-    'airpodsredbean',
-    'autotnb2b',
-    'b2boutlet',
-    'b2bpet',
-    'b2bzoo',
-    'bowmall',
-    'byramee',
-    'dayshouse',
-    'dimfac',
-    #'dodomall', # 확인 필요
-    'dogsclub',
-    'domejjim',
-    'feelwoo',
-    'fromvi',
-    'funn',
-    'funtasticb2b',
-    'gagudome',
-    'ggotda',
-    'goodbeauty',
-    'innovill',
-    'iwinwinmarket',
-    'jeanforce',
-    'joomengi',
-    'jsweet',
-    'jystyle',
-    'jywholesale',
-    'leadersdome',
-    'lecb2b',
-    'manipanda',
-    'mdpet',
-    #'mongtang', # 확인 필요
-    'moonnri',
-    'oneplusm',
-    'pettory',
-    'pinkshop',
-    'plala',
-    'pqb2b',
-    'roomnoffice',
-    'samhoglass',
-    #'sdmall', # url 변경
-    'seoulbasket',
-    'simplo',
-    'soggupnoli',
-    'sosohome',
-    'specialoffer',
-    'sujinpet',
-    'twostory',
-    'zseller',
-    'accatoy',
-    'lalab2b',
+   '2sunplanet', 'ezmarket', 'plusb2b', 'domaecos', 'airpodsredbean', 'autotnb2b', 'b2boutlet', 'b2bpet', 'b2bzoo', 'bowmall'
+   , 'byramee', 'dayshouse', 'dimfac', 'dogsclub', 'domejjim', 'feelwoo', 'fromvi', 'funn', 'funtasticb2b', 'gagudome'
+   , 'ggotda', 'goodbeauty', 'innovill', 'iwinwinmarket', 'jeanforce', 'jsweet', 'jystyle', 'jywholesale', 'leadersdome', 'lecb2b'
+   , 'manipanda', 'mdpet', 'moonnri', 'oneplusm', 'pettory', 'pinkshop', 'plala', 'pqb2b', 'roomnoffice', 'samhoglass'
+   , 'seoulbasket', 'simplo', 'soggupnoli', 'sosohome', 'specialoffer', 'sujinpet', 'twostory', 'zseller', 'accatoy', 'lalab2b'
+    'comnparts', 'bbdb', 'nonda', 'gogob2b', 'choitem', 'dometopia', 'moredo', 'mroutlet', 'ahamarket', '1020bag' # 추가 예정 스크롤러
 ]
+
 # 제외 스크롤러
 # 'dasopoom', 'domesangin', gcol', 'hometawnggyi', 'livingchu', 'sellerz', 'sijangn', 'wehayou', 'namdaemun',
 # 'goodbuying' (굿바잉) # 23.4.29 사이트 폐쇄로 삭제
 
 # 임시 제거 스크롤러 
-# 'jeostyle' - 타임아웃  'schnariever', 'kayu' - 구조 변경
+# jeostyle : 타임아웃  schnariever, kayu : 구조 변경
+# bestket, joomengi, mongtang, dodomall
+# sdmall : url 변경
 
 # 스크롤러 
 for spider in spiders:
     process.crawl(spider, domain='scrapy.org')
     sleep(1.5)
 
-process.start() # the script will block here until the crawling is finished
+process.start()# the script will block here until the crawling is finished
 
 print("++++ Crawl Process finished ++++")
 
